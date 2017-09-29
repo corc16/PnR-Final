@@ -65,7 +65,7 @@ class Piggy(pigo.Pigo):
         for x in range(3):
             for x in range(10):
                 self.encR(1)
-            self.encL(18)
+            self.encL(16)
 
 
     def nav(self):
