@@ -61,8 +61,9 @@ class Piggy(pigo.Pigo):
 
     def sprinkler(self):
         """subroutine of dance method"""
+        self.set_speed(90, 90)
         for x in range(5):
-            self.encR(5)
+            self.encR(2)
             self.stop()
 
 
