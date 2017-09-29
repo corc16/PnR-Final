@@ -64,7 +64,7 @@ class Piggy(pigo.Pigo):
         self.set_speed(90, 90)
         for x in range(5):
             self.encR(2)
-            self.stop()
+        self.encL(10)
 
 
     def nav(self):
