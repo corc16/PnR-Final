@@ -57,22 +57,18 @@ class Piggy(pigo.Pigo):
         """executes a series of methods that add up to a compound dance"""
         print("\n---- LET'S DANCE ----\n")
         ##### WRITE YOUR FIRST PROJECT HERE
-        self.right_rot()
+        self.encR(1)
 
-    def right_rot(self):
-        """subroutine of dance method"""
-        self.right_rot()
-        self.stop(.2)
-        self.right_rot()
-        self.stop(.2)
-        self.right_rot()
-        self.stop(.2)
-        self.right_rot()
-        self.stop()
-
-
-
-    def to_the_left(self):
+        def right(self):
+                """subroutine of dance method"""
+            self.encR(1)
+            self.stop()
+            self.encR(1)
+            self.stop()
+            self.encR(1)
+            self.stop()
+            self.encR(1)
+            self.stop()
 
     def nav(self):
         """auto pilots and attempts to maintain original heading"""
