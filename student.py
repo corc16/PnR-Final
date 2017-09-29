@@ -59,16 +59,16 @@ class Piggy(pigo.Pigo):
         ##### WRITE YOUR FIRST PROJECT HERE
         self.encR(1)
 
-        def right(self):
-                """subroutine of dance method"""
-            self.encR(1)
-            self.stop()
-            self.encR(1)
-            self.stop()
-            self.encR(1)
-            self.stop()
-            self.encR(1)
-            self.stop()
+    def right(self):
+        """subroutine of dance method"""
+        self.encR(1)
+        self.stop()
+        self.encR(1)
+        self.stop()
+        self.encR(1)
+        self.stop()
+        self.encR(1)
+        self.stop()
 
     def nav(self):
         """auto pilots and attempts to maintain original heading"""
