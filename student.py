@@ -61,6 +61,7 @@ class Piggy(pigo.Pigo):
 
     def right(self):
         """subroutine of dance method"""
+        self.set_speed(20)
         for x in range(5):
             self.encR(5)
             self.stop()
