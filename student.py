@@ -59,6 +59,7 @@ class Piggy(pigo.Pigo):
         ##### WRITE YOUR FIRST PROJECT HERE
         self.sprinkler()
         self.thriller()
+        self.shooting_stars()
 
     def sprinkler(self):
         """subroutine of dance method"""
@@ -72,7 +73,12 @@ class Piggy(pigo.Pigo):
         self.set_speed(90, 90)
         for x in range(1):
             self.encR(5)
-        self.encF(5)
+        self.encF(10)
+
+    def shooting_stars(self):
+        for x in range(7):
+            self.servo(62)
+            self.servo(87)
 
 
 
