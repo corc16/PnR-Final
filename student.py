@@ -70,9 +70,9 @@ class Piggy(pigo.Pigo):
 
     def thriller(self):
         self.set_speed(90, 90)
-        for x in range(3):
+        for x in range(1):
             self.encR(5)
-            self.encF(5)
+        self.encF(5)
 
 
 
