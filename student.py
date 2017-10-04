@@ -68,8 +68,9 @@ class Piggy(pigo.Pigo):
         for x in range(4):
             if not self.is_clear():
                 return False
+            print("Check Distance")
             self.encR(8)
-        # turn 90 deg
+        print("Safe to dance!")
         return True
 
     def sprinkler(self):
