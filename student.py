@@ -90,6 +90,8 @@ class Piggy(pigo.Pigo):
     def shooting_stars(self):
         for x in range(7):
             self.servo(55)
+            self.servo(self.MIDPOINT)
+            
 
 
 
