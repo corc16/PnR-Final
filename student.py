@@ -86,8 +86,8 @@ class Piggy(pigo.Pigo):
         self.encR(5)
         self.encF(10)
         for x in range(3):
-            self.encR(20)
-            self.encL(21)
+            self.encR(26)
+            self.encL(27)
 
     def shooting_stars(self):
         for x in range(7):
