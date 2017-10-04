@@ -22,7 +22,7 @@ class Piggy(pigo.Pigo):
         self.SAFE_STOP_DIST = 30
         self.HARD_STOP_DIST = 15
         # YOU DECIDE: What left motor power helps straighten your fwd()?
-        self.LEFT_SPEED = 140
+        self.LEFT_SPEED = 135
         # YOU DECIDE: What left motor power helps straighten your fwd()?
         self.RIGHT_SPEED = 140
         # This one isn't capitalized because it changes during runtime, the others don't
@@ -75,7 +75,7 @@ class Piggy(pigo.Pigo):
 
     def sprinkler(self):
         """subroutine of dance method"""
-        self.set_speed(90, 90)
+        self.set_speed(90, 85)
         for x in range(3):
             for x in range(10):
                 self.encR(1)
@@ -91,7 +91,7 @@ class Piggy(pigo.Pigo):
         for x in range(7):
             self.servo(55)
             self.servo(self.MIDPOINT)
-            
+
 
 
 
