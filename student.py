@@ -64,6 +64,7 @@ class Piggy(pigo.Pigo):
             self.shooting_stars()
 
     def safety_check(self):
+        """checks surrounding areas to make sure it has room to dance"""
         self.servo(self.MIDPOINT)  # Looks straight ahead
         for x in range(4):
             if not self.is_clear():
@@ -74,16 +75,17 @@ class Piggy(pigo.Pigo):
         return True
 
     def sprinkler(self):
-        """subroutine of dance method"""
+        """robot does the sprinkler dance"""
         self.set_speed(100, 100)
-        for x in range(3):
+        for x in range(3):   # Loops the sprinkler dance three times
             for x in range(10):
                 self.encR(1)
-                self.servo(70)
+                self.servo(70)    # Moves head while doing the sprinkler
                 self.servo(self.MIDPOINT)
             self.encL(18)
 
     def thriller(self):
+        """robot does a version of the dance from Thriller"""
         self.set_speed(110, 105)
         self.encR(5)
         self.encF(20)
@@ -95,10 +97,11 @@ class Piggy(pigo.Pigo):
         for x in range(3):
             self.encR(31)
             self.encL(34)
-            self.stop()
+            self.stop()   # Allows robot to do shooting_stars while standing still
 
     def shooting_stars(self):
-        for x in range(7):
+        """moves head back and forth quickly seven times"""
+        for x in range(7):    # Brings head to 55 degrees then back to midpoint 7 times in a row
             self.servo(55)
             self.servo(self.MIDPOINT)
 
