@@ -79,10 +79,12 @@ class Piggy(pigo.Pigo):
         for x in range(3):
             for x in range(10):
                 self.encR(1)
+                self.servo(80)
+                self.servo(self.MIDPOINT)
             self.encL(18)
 
     def thriller(self):
-        self.set_speed(110, 108)
+        self.set_speed(110, 110)
         self.encR(5)
         self.encF(20)
         for x in range(3):
