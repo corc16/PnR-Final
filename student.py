@@ -122,8 +122,6 @@ class Piggy(pigo.Pigo):
                 self.cruise()
             else:
                 self.stop()
-            while True:
-
 
     def cruise(self):
         """Drive straight while path is clear"""
