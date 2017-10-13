@@ -35,6 +35,8 @@ class Piggy(pigo.Pigo):
             self.stop()
             self.menu()
 
+
+
     def menu(self):
         """Displays menu dictionary, takes key-input and calls method"""
         ## This is a DICTIONARY, it's a list with custom index values
@@ -115,7 +117,21 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
+        while True:
+            if self.is_clear():
+                self.cruise()
+            else:
+                self.stop()
+            while True:
 
+
+    def cruise(self):
+        """Drive straight while path is clear"""
+        self.fwd()
+        while True:
+            if self.dist() < 30:
+                self.stop()
+            time.sleep(.2)
 
 ####################################################
 ############### STATIC FUNCTIONS
