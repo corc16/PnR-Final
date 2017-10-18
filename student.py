@@ -43,6 +43,7 @@ class Piggy(pigo.Pigo):
         # You may change the menu if you'd like to add an experimental method
         menu = {"n": ("Navigate forward", self.nav),
                 "d": ("Dance", self.dance),
+                "o": ("Obstacle count", self.detect),
                 "c": ("Calibrate", self.calibrate),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit_now)
@@ -130,6 +131,22 @@ class Piggy(pigo.Pigo):
             if self.dist() < 30:
                 self.stop()
             time.sleep(.2)
+
+    def detect(self):
+        """scans surround area and counts the number of objects within sight"""
+        self.wide_scan()
+        found_something = False
+        counter = 0
+        for dist in self.scan:
+            if dist and dist < 150 and not found_something:
+                found_something = True
+                print("Object # %d found, I think" % counter)
+            if dist and dist > 150 and found_something:
+                found_something = False
+                counter += 1
+        print("\n----I SEE %d OBJECTS----\n" % counter)
+        
+
 
 ####################################################
 ############### STATIC FUNCTIONS
