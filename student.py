@@ -108,7 +108,6 @@ class Piggy(pigo.Pigo):
             self.servo(55)
             self.servo(self.MIDPOINT)
 
-
     def nav(self):
         """auto pilots and attempts to maintain original heading"""
         logging.debug("Starting the nav method")
@@ -117,11 +116,14 @@ class Piggy(pigo.Pigo):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         while True:
             if self.is_clear():
-                self.cruise()
+                self.cruise()  # Cruise forward until it gets to stopping distance
             else:
-                self.stop()  # stops robot
+                self.stop()  # Stops robot
+                self.best_path()
 
-
+    def best_path(self):
+        """Chooses the most open/best path for the robot to cruise down"""
+        # NEED TO WORK ON NEXT
 
     def cruise(self):
         """Drive straight while path is clear"""
@@ -133,13 +135,13 @@ class Piggy(pigo.Pigo):
 
     def detect(self):
         """scans surround area and counts the number of objects within sight"""
-        self.wide_scan()
+        self.wide_scan()  # Check surrounding areas for object using servo
         found_something = False
         counter = 0
         for dist in self.scan:
             if dist and dist < 95 and not found_something:
                 found_something = True
-                counter += 1
+                counter += 1  # Counts every object that is sees
                 print("Object # %d found, I think" % counter)
             if dist and dist > 95 and found_something:
                 found_something = False
