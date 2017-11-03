@@ -108,6 +108,14 @@ class Piggy(pigo.Pigo):
             self.servo(55)
             self.servo(self.MIDPOINT)
 
+    def restore_heading(self):
+        """Uses self.turn_track to reorient to original heading"""
+        print("Restoring heading!")
+        if self.turn_track > 0:     # If the turn track is below zero it turns left
+                self.encL(abs(self.turn_track))
+        elif self.turn_track < 0:    # If the turn track is above zero it turns right
+                self.encR(abs(self.turn_track))
+
     def nav(self):
         """auto pilots and attempts to maintain original heading"""
         logging.debug("Starting the nav method")
@@ -132,6 +140,15 @@ class Piggy(pigo.Pigo):
             if self.dist() < 30:   # Stop distance is 30 cm away for cruise
                 self.stop()
             time.sleep(.2)
+
+    def test_restore_heading(self):
+        """Test the restore_heading method"""
+        self.encR(5)
+        self.encL(15)
+        self.encR(10)
+        self.encL(10)
+        self.encL(3)
+        self.restore_heading()
 
     def detect(self):
         """scans surround area and counts the number of objects within sight"""
