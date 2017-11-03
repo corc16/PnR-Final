@@ -57,7 +57,8 @@ class Piggy(pigo.Pigo):
         # activate the item selected
         menu.get(ans, [None, error])[1]()
 
-    # YOU DECIDE: How does your GoPiggy dance?
+    #######################################################################################
+    # DANCE ROUTINE
     def dance(self):
         """executes a series of methods that add up to a compound dance"""
         print("\n---- LET'S DANCE ----\n")
@@ -109,6 +110,8 @@ class Piggy(pigo.Pigo):
             self.servo(55)
             self.servo(self.MIDPOINT)
 
+##########################################################################################################
+
     def restore_heading(self):
         """Uses self.turn_track to reorient to original heading"""
         print("Restoring heading!")
@@ -126,13 +129,13 @@ class Piggy(pigo.Pigo):
         while True:
             if self.is_clear():
                 self.cruise()  # Cruise forward until it gets to stopping distance
-            else:
-                self.stop()  # Stops robot
-                self.best_path()
-
-    def best_path(self):
-        """Chooses the most open/best path for the robot to cruise down"""
-        # NEED TO WORK ON NEXT
+                if self.dist() < 7:  # Will stop when object is up close to piggy
+                    self.encB(5)  # Piggy backs up to be able to turn better
+                answer = self.choosePath()
+                if answer == "left":
+                    self.encL(45)   # Piggy turns left when told to
+                elif answer == "right":
+                    self.encR(45)   # Piggy turns right when told to
 
     def cruise(self):
         """Drive straight while path is clear"""
@@ -149,7 +152,7 @@ class Piggy(pigo.Pigo):
         self.encR(10)
         self.encL(10)
         self.encL(3)
-        self.restore_heading()
+        self.restore_heading()  # Moves robot in different directions and then back to original spot
 
     def detect(self):
         """scans surround area and counts the number of objects within sight"""
