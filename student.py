@@ -45,7 +45,7 @@ class Piggy(pigo.Pigo):
                 "d": ("Dance", self.dance),
                 "o": ("Obstacle count", self.detect),
                 "c": ("Calibrate", self.calibrate),
-                "h": ("Restore Heading", self.restore_heading),
+                "h": ("Restore Heading", self.test_restore_heading),
                 "s": ("Check status", self.status),
                 "q": ("Quit", quit_now)
                 }
