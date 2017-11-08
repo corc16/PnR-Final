@@ -131,19 +131,13 @@ class Piggy(pigo.Pigo):
                 self.cruise()  # Cruise forward until it gets to stopping distance
                 if self.dist() < 7:  # Will stop when object is up close to piggy
                     self.encB(5)  # Piggy backs up to be able to turn better
-                answer = self.choosePath()
-                if answer == "left":
-                    self.encL(45)   # Piggy turns left when told to
-                elif answer == "right":
-                    self.encR(45)   # Piggy turns right when told to
 
     def cruise(self):
         """Drive straight while path is clear"""
         self.fwd()
-        while True:
-            if self.dist() < 30:   # Stop distance is 30 cm away for cruise
-                self.stop()
-            time.sleep(.2)
+        while self.dist() > self.SAFE_STOP_DIST:
+            time.sleep(.5)
+        self.stop()
 
     def test_restore_heading(self):
         """Test the restore_heading method"""
