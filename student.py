@@ -133,11 +133,18 @@ class Piggy(pigo.Pigo):
         print("It took you %d seconds to run this" % difference)
         while True:
             if self.is_clear():
+                self.servo(self.MIDPOINT)
                 self.cruise()  # Cruise forward until it gets to stopping distance
             else:
-                self.encB(3)   # Piggy backs up to be able to turn better
+                self.encB(1)   # Piggy backs up to be able to turn better
+                self.find_path()    # Find a path that the robot can drive
+
+    def find_path(self):
+        """Find a viable path the drive through"""
+        # self.detect()
 
     def smooth_turn(self):
+        """Another rotation method"""
         self.right_rot()
         start = datetime.datetime.utcnow()
         self.servo(self.MIDPOINT)
