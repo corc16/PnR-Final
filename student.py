@@ -137,10 +137,10 @@ class Piggy(pigo.Pigo):
                 self.cruise()  # Cruise forward until it gets to stopping distance
             else:
                 self.encB(1)   # Piggy backs up to be able to turn better
-                self.find_path()    # Find a path that the robot can drive
+                self.encR(5)   # Turn right to find better path
 
     def find_path(self):
-        """Find a viable path the drive through"""
+        """Find a viable path to drive through"""
         # self.detect()
 
     def smooth_turn(self):
