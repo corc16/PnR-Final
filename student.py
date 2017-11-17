@@ -149,6 +149,7 @@ class Piggy(pigo.Pigo):
             self.encR(5)
             self.next_right = False
         else:     # If object is in the way to the right robots turns left
+            self.restore_heading()
             self.encL(10)
             self.next_right = True
 
