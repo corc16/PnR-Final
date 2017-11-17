@@ -144,11 +144,14 @@ class Piggy(pigo.Pigo):
                 self.rl_turn()   # Turn to find the best bath
 
     def rl_turn(self):
+        """Method that turns right and left until open path"""
         if self.next_right:
             self.encR(5)
+            self.next_right = False
         else:
             self.restore_heading()
             self.encL(10)
+            self.next_right = True
 
 
 
