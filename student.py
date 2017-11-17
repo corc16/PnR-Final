@@ -14,9 +14,13 @@ logging.basicConfig(filename=LOG_FILE, format=LOG_FORMAT, level=LOG_LEVEL)
 class Piggy(pigo.Pigo):
     """Student project, inherits teacher Pigo class which wraps all RPi specific functions"""
 
+
+
     def __init__(self):
         """The robot's constructor: sets variables and runs menu loop"""
         print("I have been instantiated!")
+        self.next_right = True
+        # So our robot can find the right way to turn so it can keep moving forward
         self.start_time = datetime.datetime.utcnow()
         # Our servo turns the sensor. What angle of the servo( ) method sets it straight?
         self.MIDPOINT = 83
@@ -137,11 +141,16 @@ class Piggy(pigo.Pigo):
                 self.cruise()  # Cruise forward until it gets to stopping distance
             else:
                 self.encB(1)   # Piggy backs up to be able to turn better
-                self.encR(5)   # Turn right to find better path
+                self.rl_turn()   # Turn to find the best bath
 
-    def find_path(self):
-        """Find a viable path to drive through"""
-        # self.detect()
+    def rl_turn(self):
+        if self.next_right:
+            self.encR(5)
+        else:
+            self.restore_heading()
+            self.encL(10)
+
+
 
     def smooth_turn(self):
         """Another rotation method"""
