@@ -145,11 +145,13 @@ class Piggy(pigo.Pigo):
 
     def rl_turn(self):
         """Method that turns right and left until open path"""
-        if self.next_right:   # Turn right first
-            self.encR(5)
+        if self.next_right:  # Turn right first
+            while self.dist() < self.SAFE_STOP_DIST:
+                self.encR(5)
             self.next_right = False
-        else:     # If object is in the way to the right robots turns left
-            self.encL(10)
+        else:  # If object is in the way to the right robots turns left
+            while self.dist() < self.SAFE_STOP_DIST:
+                self.encL(10)
             self.next_right = True
 
     def smooth_turn(self):
