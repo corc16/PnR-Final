@@ -147,12 +147,12 @@ class Piggy(pigo.Pigo):
         """Method that turns right and left until open path"""
         if self.next_right:  # Turn right first
             while self.dist() < self.SAFE_STOP_DIST:
-                self.encR(5)
+                self.encR(3)
                 time.sleep(.5)
             self.next_right = False
         else:  # If object is in the way to the right robots turns left
             while self.dist() < self.SAFE_STOP_DIST:
-                self.encL(7)
+                self.encL(3)
                 time.sleep(.5)
             self.next_right = True
 
