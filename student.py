@@ -140,7 +140,7 @@ class Piggy(pigo.Pigo):
                 self.servo(self.MIDPOINT)
                 self.cruise()  # Cruise forward until it gets to stopping distance
             else:
-                self.encB(1)   # Piggy backs up to be able to turn better
+                self.encB(3)   # Piggy backs up to be able to turn better
                 self.rl_turn()   # Turn to find the best bath
 
     def rl_turn(self):
