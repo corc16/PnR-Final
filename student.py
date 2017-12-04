@@ -148,13 +148,19 @@ class Piggy(pigo.Pigo):
         if self.next_right:  # Turn right first
             while self.dist() < self.SAFE_STOP_DIST:
                 self.encR(3)
-                time.sleep(.5)   # Allows the robot enough time to process
+                time.sleep(.1)   # Allows the robot enough time to process
             self.next_right = False
+            time.sleep(.1)
+            self.encR(3)
+            time.sleep(.1)
         else:  # If object is in the way to the right robots turns left
             while self.dist() < self.SAFE_STOP_DIST:
                 self.encL(3)
-                time.sleep(.5)
+                time.sleep(.1)
             self.next_right = True
+            time.sleep(.1)
+            self.encL(3)
+            time.sleep(.1)
 
     def smooth_turn(self):
         """Another rotation method"""
