@@ -151,7 +151,7 @@ class Piggy(pigo.Pigo):
                 time.sleep(.1)   # Allows the robot enough time to process
             self.next_right = False
             time.sleep(.1)
-            self.encR(3)
+            self.encR(2)   # Make sure it does not hit a box
             time.sleep(.1)
         else:  # If object is in the way to the right robots turns left
             while self.dist() < self.SAFE_STOP_DIST:
@@ -159,7 +159,7 @@ class Piggy(pigo.Pigo):
                 time.sleep(.1)
             self.next_right = True
             time.sleep(.1)
-            self.encL(3)
+            self.encL(2)
             time.sleep(.1)
 
     def smooth_turn(self):
